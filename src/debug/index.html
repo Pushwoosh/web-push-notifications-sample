@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pushwoosh Web SDK Sample</title>
+
+    <link rel="manifest" href="../manifest.json">
+    <script src="https://cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+    <script>
+        var Pushwoosh = Pushwoosh || [];
+        Pushwoosh.push(["init", {
+          logLevel: 'error', // possible values: error, info, debug
+          applicationCode: 'XXXXX-XXXXX',
+          safariWebsitePushID: 'web.com.example.domain',
+          defaultNotificationTitle: 'Pushwoosh',
+          defaultNotificationImage: 'https://cp.pushwoosh.com/img/logo-medium.png',
+          autoSubscribe: true,
+          userId: 'user_id',
+          tags: {
+            'Name': 'John Smith'
+          }
+        }]);
+    </script>
+
+    <link rel="stylesheet" href="./libs/monokai-sublime.css" />
+    <link rel="stylesheet" href="./debug.css" />
+    <script src="./libs/highlight.pack.js"></script>
+</head>
+<body>
+    <h1>Pushwoosh Web SDK usage sample</h1>
+
+    <div class="dib">
+        <p>
+            Permission:
+            <b id="prompt" class="permission-status">Prompt</b>
+            <b id="denied" class="permission-status">Denied</b>
+            <b id="granted" class="permission-status">Granted</b>
+        </p>
+    </div>
+
+    <div class="dib">
+        <p>
+            Status:
+            <b id="actionSubscribe" class="subscription-status">
+                Unsubscribed <br><button onclick="Pushwoosh.subscribe()">Subscribe</button>
+            </b>
+            <b id="actionUnsubscribe" class="subscription-status">Subscribed</b>
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Init params</h3>
+    <div class="autoscroll">
+        <pre><code id="initParams" class="json"></code></pre>
+    </div>
+
+    <hr>
+
+    <h3>API params</h3>
+    <div class="autoscroll">
+        <pre><code id="apiParams" class="json"></code></pre>
+    </div>
+
+    <fieldset>
+        <legend>Register user</legend>
+        <form id="registerUserForm">
+            <div class="success"></div>
+            <div class="error"></div>
+            <p>
+                <input type="text" name="userId" placeholder="Enter userId..." required>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>Tags</legend>
+        <div class="half">
+            <h4>Set tags</h4>
+            <form id="setTagsForm">
+                <div class="success"></div>
+                <div class="error"></div>
+                <p>
+                    <textarea name="tags" placeholder="Enter valid JSON..." cols="30" rows="10" required></textarea>
+                </p>
+                <button type="submit">Submit</button>
+            </form>
+        </div><div class="half">
+            <h4>Current tags <button id="getCurrentTags">refresh</button></h4>
+            <div class="autoscroll">
+                <pre><code id="currentTags" class="json"></code></pre>
+            </div>
+        </div>
+    </fieldset>
+
+    <script src="./debug.js"></script>
+</body>
+</html>

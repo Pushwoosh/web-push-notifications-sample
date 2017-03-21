@@ -1,0 +1,7 @@
+{
+  "name": "Pushwoosh Notifications",
+  "short_name": "Pushwoosh Notifications",
+  "gcm_sender_id": "YOUR_GOOGLE_PROJECT_ID",
+  "display": "standalone",
+  "gcm_user_visible_only": true
+}

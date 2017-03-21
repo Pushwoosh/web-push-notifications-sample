@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pushwoosh Web SDK Sample</title>
+
+    <link rel="manifest" href="./manifest.json">
+    <script src="https://cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+    <script>
+        var Pushwoosh = Pushwoosh || [];
+        Pushwoosh.push(["init", {
+          logLevel: 'error', // possible values: error, info, debug
+          applicationCode: 'XXXXX-XXXXX',
+          safariWebsitePushID: 'web.com.example.domain',
+          defaultNotificationTitle: 'Pushwoosh',
+          defaultNotificationImage: 'https://cp.pushwoosh.com/img/logo-medium.png',
+          autoSubscribe: true,
+          userId: 'user_id',
+          tags: {
+            'Name': 'John Smith'
+          }
+        }]);
+    </script>
+</head>
+<body>
+    <h1>Pushwoosh Web SDK usage sample</h1>
+</body>
+</html>
