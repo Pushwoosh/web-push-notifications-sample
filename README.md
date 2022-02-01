@@ -21,7 +21,7 @@ Open `src/index.html` and make the following changes:
     <meta charset="utf-8">
     <title>Pushwoosh Web SDK Sample</title>
 
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <script src="https://cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
     <script>
         var Pushwoosh = Pushwoosh || [];
@@ -75,7 +75,7 @@ Copy all these files from `src/` folder to top-level root of your website direct
 \* If you already have some html rendering system, insert this code inside `<head></head>` tag:
 
 ```html
-<link rel="manifest" href="./manifest.json">
+<link rel="manifest" href="/manifest.json">
 <script src="https://cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
 <script>
     var Pushwoosh = Pushwoosh || [];
