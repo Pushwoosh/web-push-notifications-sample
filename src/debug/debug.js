@@ -3,15 +3,6 @@ Pushwoosh.push(function(api) {
   checkSubscription();
   getCurrentTags();
   displayApiParams();
-  var params = Pushwoosh._initParams || {};
-  var elem = document.querySelector('#initParams');
-
-  try {
-    insertSourceCode(elem, params);
-  }
-  catch (e) {
-    console.error('Got error on stringify default params', params);
-  }
 });
 
 /**
@@ -58,14 +49,11 @@ function insertSourceCode(elem, data) {
 }
 
 function displayApiParams() {
-  try {
-    var params = Pushwoosh.api.params || {};
-    var elem = document.querySelector('#apiParams');
-    insertSourceCode(elem, params);
-  }
-  catch (e) {
-    console.error('Got error on displaying API params', e);
-  }
+  var elem = document.querySelector('#apiParams');
+
+  Pushwoosh.api.getParams()
+      .then((params) => insertSourceCode(elem, params))
+      .catch((error) => console.error(error));
 }
 
 function checkSubscription() {
